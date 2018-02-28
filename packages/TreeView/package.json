@@ -19,8 +19,8 @@
     "@rabbitcc/stylekit": "^0.0.1"
   },
   "peerDependencies": {
+    "@rabbitcc/stylekit": "*",
     "react": "^16",
-    "react-dom": "^16",
-    "@rabbitcc/stylekit": "*"
+    "react-dom": "^16"
   }
 }
