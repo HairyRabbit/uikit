@@ -1,0 +1,7 @@
+/**
+ * <TreeView />
+ */
+
+.list {
+  composes: list from '@rabbitcc/stylekit/list-reset.css';
+}
