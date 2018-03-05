@@ -1,0 +1,47 @@
+/**
+ * <Avatar /> styles
+ */
+
+.container {
+  composes: avatar from 'stylekit/avatar.css';
+  vertical-align: middle;
+}
+
+.image {
+  composes: img from 'stylekit/avatar.css';
+}
+
+.text {
+  composes: container;
+  background-color: #ccc;
+  color: #fff;
+}
+
+.large {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.normal {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.small {
+  width: 2rem;
+  height: 2rem;
+}
+
+.text.large {
+  font-size: 1.2rem;
+  line-height: 2.5rem;
+}
+
+.text.normal {
+  line-height: 2.5rem;
+}
+
+.text.small {
+  font-size: 0.9rem;
+  line-height: 2rem;
+}
