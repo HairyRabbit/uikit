@@ -39,7 +39,8 @@ module.exports = {
           }},
           'postcss-loader'
         ]
-      })}
+      })},
+      { test: /\.svg/, use: 'url-loader' }
     ]
   },
   externals: isProd ? {
