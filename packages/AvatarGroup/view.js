@@ -1,41 +1,36 @@
 /**
- * avatar component
+ * <AvatarGroup> views
  *
  * @flow
  */
 
 import * as React from 'react'
 import randomColor from 'randomcolor'
+import Avatar from '@rabbitcc/uikit-avatar'
 import style from './style.css'
 
 type Props = {
-  src?: string,
-  className?: string,
-  size?: 'large' | 'normal' | 'small' | 'huge' | 'string',
-  color?: 'random' | string,
-  shape?: 'circle' | 'round' | 'rect',
-  randomColorOptions?: any,
-  format?: string => string,
+  order?: 'next' | 'prev' | 'both' | 'random',
   children?: string
 }
 
 type State = {
-  failed: boolean
+  index: number
 }
 
-export default class Avatar<Props, State> extends React.Component {
+export default class AvatarGroup<Props, State> extends React.Component {
   state: State
 
   constructor(props: Props) {
     super(props)
 
     this.state = {
-      failed: false
+      index: 0
     }
   }
 
-  imageLoadFailedHandle() {
-    this.setState({ failed: true })
+  changeIndexHandle() {
+
   }
 
   /**

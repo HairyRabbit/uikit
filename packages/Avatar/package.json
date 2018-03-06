@@ -1,7 +1,7 @@
 {
   "name": "@rabbitcc/uikit-avatar",
   "version": "0.0.1",
-  "description": "<TreeView />",
+  "description": "<Avatar />",
   "main": "index.js",
   "scripts": {
     "start": "cross-env UIKITPKG=Avatar NODE_ENV=development webpack-serve --config ../../webpack.config.js",

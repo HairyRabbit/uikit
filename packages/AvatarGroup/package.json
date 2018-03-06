@@ -1,11 +1,11 @@
 {
-  "name": "@rabbitcc/uikit-avatar",
+  "name": "@rabbitcc/uikit-avatar-group",
   "version": "0.0.1",
-  "description": "<TreeView />",
+  "description": "<AvatarGroup />",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env UIKITPKG=Avatar NODE_ENV=development webpack-serve --config ../../webpack.config.js",
-    "build": "cross-env UIKITPKG=Avatar NODE_ENV=production webpack --config ../../webpack.config.js",
+    "start": "cross-env UIKITPKG=AvatarGroup NODE_ENV=development webpack-serve --config ../../webpack.config.js",
+    "build": "cross-env UIKITPKG=AvatarGroup NODE_ENV=production webpack --config ../../webpack.config.js",
     "test": "jest"
   },
   "author": "HairyRabbit <yfhj1990@hotmail.com>",
@@ -31,6 +31,7 @@
     "access": "public"
   },
   "dependencies": {
+    "@rabbitcc/uikit-avatar": "^0.0.1",
     "randomcolor": "^0.5.3"
   }
 }

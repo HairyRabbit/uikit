@@ -6,9 +6,6 @@
 
 import * as React from 'react'
 import ReactDOM from 'react-dom'
-import Deer from './Deer.svg'
-import Cat from './Cat.svg'
-import Rabbit from './Rabbit.svg'
 import Avatar from './'
 
 ReactDOM.render(
@@ -36,15 +33,12 @@ ReactDOM.render(
       <Avatar src="https://avatars2.githubusercontent.com/u/6831019?s=460&v=4" />
       <Avatar size="large" shape="round" src="https://avatars2.githubusercontent.com/u/6831019?s=460&v=4" />
       <Avatar size="huge" shape="round" src="https://avatars2.githubusercontent.com/u/6831019?s=460&v=4" />
+    </div>
 
+    <div>
       <Avatar size="huge" shape="round" src="https://foo">
         a b
       </Avatar>
-    </div>
-    <div>
-      <Avatar size="huge" src={Deer} />
-      <Avatar size="huge" src={Rabbit} />
-      <Avatar size="huge" src={Cat} />
     </div>
   </div>,
   document.getElementById('app')
