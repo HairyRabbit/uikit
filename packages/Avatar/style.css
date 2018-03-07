@@ -55,6 +55,10 @@
 }
 
 
+/**
+ * used for text avatar container
+ */
+
 .text.small {
   font-size: calc(small / ratio);
   line-height: small;

@@ -6,24 +6,23 @@
 
 import * as React from 'react'
 import randomColor from 'randomcolor'
+import TextAvatar, { type Props as TextAvatarProps } from './text.view'
+import ImageAvatar, { type Props as ImageAvatarProps }from './image.view'
+import { type Shape } from './'
 import style from './style.css'
 
-type Props = {
-  src?: string,
-  className?: string,
-  size?: 'large' | 'normal' | 'small' | 'huge' | 'string',
-  color?: 'random' | string,
-  shape?: 'circle' | 'round' | 'rect',
-  randomColorOptions?: any,
-  format?: string => string,
-  children?: string
-}
+type Props =
+  & TextAvatarProps
+  & ImageAvatarProps
+  & {
+    onError: SyntheticEvent<HTMLImageElement> => boolean
+  }
 
 type State = {
   failed: boolean
 }
 
-export default class Avatar<Props, State> extends React.Component {
+export default class Avatar extends React.Component<Props, State> {
   state: State
 
   constructor(props: Props) {
@@ -34,98 +33,39 @@ export default class Avatar<Props, State> extends React.Component {
     }
   }
 
-  imageLoadFailedHandle() {
-    this.setState({ failed: true })
-  }
+  handleLoadFailed(event: SyntheticEvent<HTMLImageElement>): void {
+    const handleError = this.props.onError
+    let result = true
 
-  /**
-   * render image avatar
-   */
-  renderImage(): React.Node {
-    const {
-      src,
-      className,
-      size = 'normal',
-      shape = 'circle',
-      ...rest
-    } = this.props
-
-    const classNameByShape = style[shape]
-    const classNameBySize = isBuildinSize(size) ? style[size] : null
-    const classNames = [
-      style.container,
-      classNameBySize,
-      classNameByShape,
-      className
-    ]
-
-    return (
-      <div className={classNames.join(' ')} {...rest}>
-        <img className={style.image}
-             src={src}
-             onError={this.imageLoadFailedHandle.bind(this)} />
-      </div>
-    )
-  }
-
-  renderText(): React.Node {
-    const {
-      children,
-      className,
-      size = 'normal',
-      color = 'random',
-      shape = 'circle',
-      format,
-      randomColorOptions = {
-        luminosity: 'dark'
-      },
-      ...rest
-    } = this.props
-
-    const classNameBySize = isBuildinSize(size) ? style[size] : null
-    const classNameByShape = style[shape]
-    const classNames = [
-      style.container,
-      style.text,
-      classNameBySize,
-      classNameByShape,
-      className
-    ]
-    const colorStyle = {
-      backgroundColor: 'random' === color
-        ? randomColor(randomColorOptions)
-        : color
+    if(handleError && 'function' === typeof handleError) {
+      result = handleError(event)
     }
 
-    return (
-      <div className={classNames.join(' ')}
-           style={colorStyle}
-           {...rest}>
-        <span>
-          {children.split(' ').map(s => s[0].toUpperCase()).slice(0, 2).join('')}
-        </span>
-      </div>
-    )
+    if(result) {
+      this.setState({ failed: true })
+    }
   }
 
   render(): React.Node {
     const {
       src,
-      children
+      onError,
+      children,
+      ...rest
     } = this.props
 
-    if(this.state.failed) {
-      return this.renderText()
-    } else {
-      if(src) {
-        return this.renderImage()
-      } else {
-        return this.renderText()
-      }
+    if(src && !this.state.failed) {
+      return (
+        <ImageAvatar src={src}
+                     onError={this.handleLoadFailed.bind(this)}
+                     {...rest} />
+      )
     }
-  }
-}
 
-export function isBuildinSize(size: string): boolean %checks {
-  return Boolean(~['normal', 'large', 'small', 'huge'].indexOf(size))
+    return (
+      <TextAvatar {...rest}>
+        {children}
+      </TextAvatar>
+    )
+  }
 }

@@ -1,7 +1,5 @@
 /**
  * bootstrapper
- *
- * @flow
  */
 
 import * as React from 'react'

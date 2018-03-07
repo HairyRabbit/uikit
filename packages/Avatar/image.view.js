@@ -1,5 +1,5 @@
 /**
- * <Avatar /> image avatar
+ * <Avatar /> text avatar
  *
  * @flow
  */
@@ -12,28 +12,27 @@ import makeSizeStyle from './makeSizeStyle'
 import style from './style.css'
 
 export type Props = {
+  src: string,
   className?: string,
   size?: Size | string,
-  color?: 'random' | string,
   shape?: 'circle' | 'round' | 'rect',
-  randomColorOptions?: any,
-  format?: string => string,
-  children?: string
+  onError: Function
 }
 
 export default function Avatar(props: Props): React.Node {
   const {
-    children = '',
+    src,
     className = null,
-    size = defaultSize,
-    color = 'random',
+    size = 'normal',
     shape = 'circle',
-    format = selectChars,
-    randomColorOptions = {
-      luminosity: 'dark'
-    },
+    onError,
     ...rest
   } = props
+
+  if(!src) {
+    console.error(`<Avatar /> src was required`)
+    return null
+  }
 
   /**
    * classnames
@@ -42,7 +41,6 @@ export default function Avatar(props: Props): React.Node {
   const classNameByShape = style[shape]
   const classNames = [
     style.container,
-    style.text,
     classNameBySize,
     classNameByShape,
     className
@@ -52,13 +50,7 @@ export default function Avatar(props: Props): React.Node {
    * styles
    */
   const sizeStyle = !classNameBySize ? makeSizeStyle(size) : {}
-  const colorStyle = {
-    backgroundColor: 'random' === color
-      ? randomColor(randomColorOptions)
-      : color
-  }
   const styles = {
-    ...colorStyle,
     ...sizeStyle
   }
 
@@ -66,9 +58,9 @@ export default function Avatar(props: Props): React.Node {
     <div className={classNames}
          style={styles}
          {...rest}>
-      <span>
-        {format(children)}
-      </span>
+      <img className={style.image}
+           src={src}
+           onError={onError} />
     </div>
   )
 }
