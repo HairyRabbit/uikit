@@ -7,21 +7,22 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const isProd = process.env.NODE_ENV === 'production'
 const env = isProd ? 'production' : 'development'
 const name = process.env.UIKITPKG
+const isDemo = 'true' === name
 
 if(!name) {
   throw new Error('No UIKITPKG')
 }
 
-const moduleName = kebabCase(name)
+const moduleName = isDemo ? 'main' : kebabCase(name)
 
 module.exports = {
   mode: env,
-  entry: isProd ? './index.js' : './boot.js',
+  entry: './index.js',
   output: {
-    path: path.resolve('lib'),
+    path: path.resolve(__dirname, 'docs'),
     filename: moduleName + '.js',
-    library: name,
-    libraryTarget: 'umd'
+    library: isDemo ? name : undefined,
+    libraryTarget: isDemo ? 'umd' : undefined
   },
   module: {
     rules: [
@@ -47,11 +48,11 @@ module.exports = {
     'react': 'React'
   } : {},
   plugins: [].concat(
-    !isProd ? new HtmlWebpackPlugin({
+    new HtmlWebpackPlugin({
       inject: false,
       template: HtmlWebpackTemplate,
       appMountId: 'app'
-    }) : [],
+    }),
     new ExtractTextPlugin(moduleName + '.css')
   )
 }

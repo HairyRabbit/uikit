@@ -4,7 +4,11 @@
   "description": "uikit",
   "main": "lib/index.js",
   "scripts": {
-    "start": "yarn build && node bin/cli.js"
+    "start": "cross-env UIKITPKG=true NODE_ENV=development webpack-serve --config webpack.config.js",
+    "build": "cross-env UIKITPKG=true NODE_ENV=production webpack --config webpack.config.js",
+    "test": "jest",
+    "test:co": "jest --coverage",
+    "type": "flow ls && flow check"
   },
   "keywords": [],
   "author": "",
@@ -32,6 +36,7 @@
     "enzyme-adapter-react-16": "^1.1.1",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.11",
+    "history": "^4.7.2",
     "html-webpack-plugin": "^3.0.4",
     "html-webpack-template": "^6.1.0",
     "jest": "^22.4.2",
@@ -39,9 +44,12 @@
     "postcss-loader": "^2.1.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
     "react-test-renderer": "^16.2.0",
     "style-loader": "^0.20.2",
     "url-loader": "^1.0.1",
-    "webpack": "^4.1.0"
+    "webpack": "^4.1.0",
+    "webpack-serve": "^0.2.0"
   }
 }

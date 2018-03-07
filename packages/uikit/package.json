@@ -1,0 +1,34 @@
+{
+  "private": true,
+  "name": "@rabbitcc/uikit-demo",
+  "version": "0.0.1",
+  "description": "uikit demos",
+  "main": "lib/index.js",
+  "scripts": {
+    "start": "cross-env UIKITPKG=true NODE_ENV=development webpack-serve --config ../../webpack.config.js",
+    "build": "cross-env UIKITPKG=true NODE_ENV=production webpack --config ../../webpack.config.js",
+    "test": "jest",
+    "test:co": "jest --coverage",
+    "type": "flow ls && flow check"
+  },
+  "keywords": [],
+  "author": "Rabbit <yfhj1990@hotmail.com>",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "babel-core": "7.0.0-bridge.0",
+    "flow-bin": "^0.66.0",
+    "history": "^4.7.2",
+    "jest": "^22.4.2",
+    "webpack": "^4.1.0",
+    "webpack-serve": "^0.2.0"
+  },
+  "dependencies": {
+    "@rabbitcc/stylekit": "^0.0.2",
+    "@rabbitcc/uikit-avatar": "^0.0.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "webpack-cli": "^2.0.10"
+  }
+}

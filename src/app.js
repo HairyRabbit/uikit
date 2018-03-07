@@ -5,11 +5,12 @@
  */
 
 import * as React from 'react'
+import { Route } from 'react-router-dom'
 
 export default function App(props: Props): React.Node {
   return (
-    <>
-      42
-    </>
+    <div>
+      <Route path="avatar" component={require('./Avatar')} />
+    </div>
   )
 }

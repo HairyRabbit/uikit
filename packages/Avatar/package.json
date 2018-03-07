@@ -12,7 +12,6 @@
   "author": "HairyRabbit <yfhj1990@hotmail.com>",
   "license": "GPL-3.0",
   "files": [
-    "lib",
     "*.js",
     "*.css"
   ],
