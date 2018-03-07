@@ -44,9 +44,6 @@ module.exports = {
       { test: /\.svg/, use: 'url-loader' }
     ]
   },
-  externals: isProd ? {
-    'react': 'React'
-  } : {},
   plugins: [].concat(
     new HtmlWebpackPlugin({
       inject: false,
