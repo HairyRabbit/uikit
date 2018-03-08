@@ -10,7 +10,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import App from './app'
 
 ReactDOM.render(
-  <Router>
+  <Router basename="/uikit">
     <App />
   </Router>,
   document.getElementById('app')
