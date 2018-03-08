@@ -14,6 +14,7 @@ import style from './style.css'
 export type Props = {
   src: string,
   className?: string,
+  style?: any,
   size?: Size | string,
   shape?: 'circle' | 'round' | 'rect',
   onError: Function
@@ -23,6 +24,7 @@ export default function Avatar(props: Props): React.Node {
   const {
     src,
     className = null,
+    style: componentStyle = {},
     size = 'normal',
     shape = 'circle',
     onError,
@@ -51,7 +53,8 @@ export default function Avatar(props: Props): React.Node {
    */
   const sizeStyle = !classNameBySize ? makeSizeStyle(size) : {}
   const styles = {
-    ...sizeStyle
+    ...sizeStyle,
+    ...componentStyle
   }
 
   return (

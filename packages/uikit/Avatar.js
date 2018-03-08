@@ -81,6 +81,15 @@ export default function() {
       </div>
 
       <h2>
+        Avatar text shadow
+      </h2>
+      <div>
+        <Avatar shadow size="huge">
+          foo bar
+        </Avatar>
+      </div>
+
+      <h2>
         format text
       </h2>
       <div>
