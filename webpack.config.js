@@ -56,7 +56,7 @@ module.exports = {
       filename: '404.html',
       headHtmlSnippet: `
 <script>
-      var segmentCount = 0;
+      var segmentCount = 1;
       var l = window.location;
       l.replace(
         l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
