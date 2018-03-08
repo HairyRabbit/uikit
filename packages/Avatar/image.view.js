@@ -39,7 +39,7 @@ export default function Avatar(props: Props): React.Node {
   /**
    * classnames
    */
-  const classNameBySize = isValidSize(size) ? style[size] : null
+  const classNameBySize = isValidSize(size) ? style['size-' + size] : null
   const classNameByShape = style[shape]
   const classNames = [
     style.container,

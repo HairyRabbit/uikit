@@ -1,0 +1,17 @@
+/**
+ * <AvatarList /> styles
+ */
+
+.transition {
+  transition: transform 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28) 0s;
+}
+
+.container {
+  composes: list from '@rabbitcc/stylekit/list-reset.css';
+  composes: transition;
+}
+
+.item {
+  composes: transition;
+  display: inline-block;
+}

@@ -1,0 +1,37 @@
+{
+  "name": "@rabbitcc/uikit-avatar-list",
+  "version": "0.0.1",
+  "description": "<AvatarList />",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env UIKITPKG=AvatarList NODE_ENV=development webpack-serve --config ../../webpack.config.js",
+    "test": "jest",
+    "test:co": "jest --coverage",
+    "type": "flow ls && flow check"
+  },
+  "author": "HairyRabbit <yfhj1990@hotmail.com>",
+  "license": "GPL-3.0",
+  "files": [
+    "*.js",
+    "*.css"
+  ],
+  "devDependencies": {
+    "babel-core": "^7.0.0-bridge.0",
+    "flow-bin": "^0.66.0",
+    "jest": "^22.4.2",
+    "webpack": "^4.0.1",
+    "webpack-cli": "^2.0.9",
+    "webpack-serve": "^0.1.5"
+  },
+  "peerDependencies": {
+    "@rabbitcc/stylekit": "0.0.2",
+    "react": "^16",
+    "react-dom": "^16"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@rabbitcc/uikit-avatar": "^0.0.1"
+  }
+}

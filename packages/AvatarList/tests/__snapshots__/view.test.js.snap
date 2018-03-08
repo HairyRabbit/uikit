@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot 1`] = `
+<div
+  className=" normal circle "
+  style={Object {}}
+>
+  <img
+    className={undefined}
+    onError={[Function]}
+    src="foo"
+  />
+</div>
+`;
+
+exports[`should match snapshot when not provide image 1`] = `
+<div
+  className="  normal circle "
+  style={
+    Object {
+      "backgroundColor": "#fff",
+    }
+  }
+>
+  <span>
+    F
+  </span>
+</div>
+`;
