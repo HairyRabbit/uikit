@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "color": "^3.0.0",
-    "randomcolor": "^0.5.3"
+    "randomcolor": "^0.5.3",
+    "webpack": "4.1.1"
   }
 }

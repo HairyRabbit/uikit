@@ -16,9 +16,9 @@ export default function App(props: Props): React.Node {
         <li><NavLink to="/avatar-list">avatar list</NavLink></li>
         <li><NavLink to="/avatar-editor">avatar editor</NavLink></li>
       </ul>
-      <Route path="/avatar" component={import(/* webpackChunkName: avatar */'./Avatar')} />
-      <Route path="/avatar-list" component={import(/* webpackChunkName: avatar-list */'./AvatarList')} />
-      <Route path="/avatar-editor" component={import(/* webpackChunkName: avatar-editor */'./AvatarEditor')} />
+      <Route path="/avatar" component={import('./Avatar')} />
+      <Route path="/avatar-list" component={import('./AvatarList')} />
+      <Route path="/avatar-editor" component={import('./AvatarEditor')} />
     </div>
   )
 }

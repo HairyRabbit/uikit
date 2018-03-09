@@ -16,23 +16,6 @@
     esutils "^2.0.2"
     js-tokens "^3.0.0"
 
-"@rabbitcc/lazy-component@^0.0.6":
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/@rabbitcc/lazy-component/-/lazy-component-0.0.6.tgz#1bf064c05f245796805033dce0d316bd393bb0c6"
-  dependencies:
-    "@rabbitcc/promise-extra" "^0.0.8"
-
-"@rabbitcc/promise-extra@^0.0.8":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@rabbitcc/promise-extra/-/promise-extra-0.0.8.tgz#bc5217baef3bc804edef912983ddb0560521bcff"
-
-"@rabbitcc/react-router-async@^0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@rabbitcc/react-router-async/-/react-router-async-0.0.5.tgz#a6560e9d6e037d8b649de744a54500c5effc8804"
-  dependencies:
-    "@rabbitcc/lazy-component" "^0.0.6"
-    "@rabbitcc/promise-extra" "^0.0.8"
-
 "@shellscape/koa-send@^4.1.0":
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/@shellscape/koa-send/-/koa-send-4.1.2.tgz#d76bb15d621f6f49776a2d53b1af808fa39406e7"
@@ -6348,9 +6331,9 @@ webpack-sources@^1.0.1, webpack-sources@^1.1.0:
     source-list-map "^2.0.0"
     source-map "~0.6.1"
 
-webpack@^4.0.1:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.1.0.tgz#91b6862e56eb3b18b79bb10b51866987ff10d2d6"
+webpack@4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.1.1.tgz#44e4d6a869dd36fdfc0b227f9bd865a4bccfd81c"
   dependencies:
     acorn "^5.0.0"
     acorn-dynamic-import "^3.0.0"

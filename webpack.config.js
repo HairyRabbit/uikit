@@ -3,6 +3,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const HtmlWebpackTemplate = require('html-webpack-template')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const isProd = process.env.NODE_ENV === 'production'
 const env = isProd ? 'production' : 'development'
@@ -20,27 +21,40 @@ module.exports = {
   entry: './index.js',
   output: {
     path: path.resolve(__dirname, 'docs'),
-    filename: moduleName + '.js',
-    library: isDemo ? name : undefined,
-    libraryTarget: isDemo ? 'umd' : undefined
+    filename: moduleName + '.js'
+    // library: isDemo ? name : undefined,
+    // libraryTarget: isDemo ? 'umd' : undefined
   },
   module: {
     rules: [
       { test: /\.js$/, use: 'babel-loader' },
-      { test: /\.css$/, use: ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: [
-          { loader: 'css-loader', options: {
-            modules: true,
-            importLoader: 1,
-            minimize: isProd,
-            localIdentName: isProd
-              ? '[hash:base64:8]'
-              : '[path][name]__[local]--[hash:base64:5]'
-          }},
-          'postcss-loader'
-        ]
-      })},
+      { test: /\.css$/, use: [
+        true ? MiniCssExtractPlugin.loader : 'style-loader',
+        { loader: 'css-loader', options: {
+          modules: true,
+          importLoader: 1,
+          minimize: isProd,
+          localIdentName: isProd
+            ? '[hash:base64:8]'
+            : '[path][name]__[local]--[hash:base64:5]'
+        }},
+        'postcss-loader'
+      ]}
+      // { test: /\.css$/, use: ExtractTextPlugin.extract({
+      //   fallback: 'style-loader',
+      //   use: [
+          // { loader: 'css-loader', options: {
+          //   modules: true,
+          //   importLoader: 1,
+          //   minimize: isProd,
+          //   localIdentName: isProd
+          //     ? '[hash:base64:8]'
+          //     : '[path][name]__[local]--[hash:base64:5]'
+          // }},
+          // 'postcss-loader'
+      //   ]
+      // })}
+      ,
       { test: /\.svg/, use: 'url-loader' }
     ]
   },
@@ -48,13 +62,25 @@ module.exports = {
     'react': 'React',
     'react-dom': 'ReactDOM'
   },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        cssDedupe: {
+          test: /\.css$/,
+          chunks: 'all',
+          minChunks: 1,
+          enforce: true
+        }
+      }
+    }
+  },
   plugins: [].concat(
     new HtmlWebpackPlugin({
       inject: false,
       template: HtmlWebpackTemplate,
       appMountId: 'app',
       scripts: [
-        'https://unpkg.com/react@16.2.0/umd/react.production.min.js',
+        'https://unpkg.com/react@16.2.0/umd/react.development.js',
         'https://unpkg.com/react-dom@16.2.0/umd/react-dom.production.min.js'
       ],
       headHtmlSnippet: `
@@ -94,6 +120,14 @@ module.exports = {
       );
 </script>`
     }),
-    new ExtractTextPlugin(moduleName + '.css')
+    // new ExtractTextPlugin({
+    //   filename: moduleName + '.css',
+    //   allChunks: true,
+    //   ignoreOrder: true,
+    //   disable: !isProd
+    // })
+    new MiniCssExtractPlugin({
+      filename: moduleName + '.css'
+    })
   )
 }

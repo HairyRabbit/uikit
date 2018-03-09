@@ -31,6 +31,6 @@
     "access": "public"
   },
   "dependencies": {
-
+    "webpack": "4.1.1"
   }
 }
