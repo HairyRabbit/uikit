@@ -23,8 +23,10 @@
     "webpack-serve": "^0.2.0"
   },
   "dependencies": {
+    "@rabbitcc/react-router-async": "^0.0.6",
     "@rabbitcc/stylekit": "^0.0.2",
     "@rabbitcc/uikit-avatar": "^0.0.1",
+    "@rabbitcc/uikit-avatar-editor": "^0.0.1",
     "@rabbitcc/uikit-avatar-list": "^0.0.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",

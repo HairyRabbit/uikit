@@ -44,11 +44,19 @@ module.exports = {
       { test: /\.svg/, use: 'url-loader' }
     ]
   },
+  externals: {
+    'react': 'React',
+    'react-dom': 'ReactDOM'
+  },
   plugins: [].concat(
     new HtmlWebpackPlugin({
       inject: false,
       template: HtmlWebpackTemplate,
       appMountId: 'app',
+      scripts: [
+        'https://unpkg.com/react@16.2.0/umd/react.production.min.js',
+        'https://unpkg.com/react-dom@16.2.0/umd/react-dom.production.min.js'
+      ],
       headHtmlSnippet: `
 <script>
       (function(l) {

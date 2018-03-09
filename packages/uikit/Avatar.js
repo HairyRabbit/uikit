@@ -10,20 +10,20 @@ import Avatar from '@rabbitcc/uikit-avatar'
 export default function() {
   return (
     <div>
-      <h2>
+      <header>
         Avatar by text
-      </h2>
+      </header>
       <Avatar>
         foo bar
       </Avatar>
-      <h2>
+      <header>
         Avatar by image
-      </h2>
+      </header>
       <Avatar src="https://avatars2.githubusercontent.com/u/5752902?s=460&v=4" />
 
-      <h2>
+      <header>
         Avatar size
-      </h2>
+      </header>
       <div>
         <Avatar size="small">
           foo bar
@@ -50,9 +50,9 @@ export default function() {
         <Avatar size="10rem" src="https://avatars2.githubusercontent.com/u/5752902?s=460&v=4" />
       </div>
 
-      <h2>
+      <header>
         Avatar shape
-      </h2>
+      </header>
       <div>
         <Avatar shape="circle">
           foo bar
@@ -71,38 +71,42 @@ export default function() {
         <Avatar shape="rect" src="https://avatars2.githubusercontent.com/u/5752902?s=460&v=4" />
       </div>
 
-      <h2>
+      <header>
         Avatar color
-      </h2>
+      </header>
       <div>
         <Avatar color="#222">
           foo bar
         </Avatar>
       </div>
 
-      <h2>
+      <header>
         Avatar text shadow
-      </h2>
+      </header>
       <div>
         <Avatar shadow size="huge">
           foo bar
         </Avatar>
       </div>
 
-      <h2>
+      <header>
         format text
-      </h2>
+      </header>
       <div>
         <Avatar format={str => str[0]}>
           凉凉
         </Avatar>
       </div>
 
-      <h2>
-        Avatar by image failback to text
-      </h2>
+      <header>Load image failback to text</header>
 
       <Avatar src="foo" >
+        foo bar
+      </Avatar>
+
+      <header>Conver text to inline image</header>
+
+      <Avatar inline>
         foo bar
       </Avatar>
     </div>

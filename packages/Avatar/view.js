@@ -1,5 +1,7 @@
 /**
- * avatar component
+ * <Avatar />
+ *
+ * Avatar
  *
  * @flow
  */
@@ -15,7 +17,8 @@ type Props =
   & TextAvatarProps
   & ImageAvatarProps
   & {
-    onError: SyntheticEvent<HTMLImageElement> => boolean
+    onBeforeError: SyntheticEvent<HTMLImageElement> => boolean,
+    onAfterError: Function
   }
 
 type State = {
@@ -34,22 +37,28 @@ export default class Avatar extends React.Component<Props, State> {
   }
 
   handleLoadFailed(event: SyntheticEvent<HTMLImageElement>): void {
-    const handleError = this.props.onError
+    const preProcess = this.props.onBeforeError
+    const postProcess = this.props.onAfterError
     let result = true
 
-    if(handleError && 'function' === typeof handleError) {
-      result = handleError(event)
+    if(preProcess && 'function' === typeof preProcess) {
+      result = preProcess(event)
     }
 
     if(result) {
-      this.setState({ failed: true })
+      this.setState({ failed: true }, () => {
+        if(postProcess && 'function' === typeof postProcess) {
+          postProcess.bind(this)()
+        }
+      })
     }
   }
 
   render(): React.Node {
     const {
       src,
-      onError,
+      onBeforeError,
+      onAfterError,
       children,
       ...rest
     } = this.props

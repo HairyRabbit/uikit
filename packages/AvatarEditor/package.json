@@ -1,29 +1,30 @@
 {
-  "name": "@rabbitcc/uikit-tree-view",
-  "version": "0.0.2",
-  "description": "<TreeView />",
+  "name": "@rabbitcc/uikit-avatar-editor",
+  "version": "0.0.1",
+  "description": "<AvatarEditor />",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env UIKITPKG=TreeView NODE_ENV=development webpack-serve --config ../../webpack.config.js",
-    "build": "cross-env UIKITPKG=TreeView NODE_ENV=production webpack --config ../../webpack.config.js",
-    "test": "jest"
+    "start": "cross-env UIKITPKG=AvatarEditor NODE_ENV=development webpack-serve --config ../../webpack.config.js",
+    "test": "jest",
+    "test:co": "jest --coverage",
+    "type": "flow ls && flow check"
   },
   "author": "HairyRabbit <yfhj1990@hotmail.com>",
   "license": "GPL-3.0",
   "files": [
-    "lib",
     "*.js",
     "*.css"
   ],
   "devDependencies": {
-    "@rabbitcc/stylekit": "^0.0.1",
+    "babel-core": "^7.0.0-bridge.0",
     "flow-bin": "^0.66.0",
+    "jest": "^22.4.2",
     "webpack": "^4.0.1",
     "webpack-cli": "^2.0.9",
     "webpack-serve": "^0.1.5"
   },
   "peerDependencies": {
-    "@rabbitcc/stylekit": "*",
+    "@rabbitcc/stylekit": "0.0.2",
     "react": "^16",
     "react-dom": "^16"
   },

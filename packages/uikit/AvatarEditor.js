@@ -1,5 +1,5 @@
 /**
- * <AvatarList />
+ * <AvatarEditor />
  *
  * @flow
  */
@@ -12,40 +12,36 @@ const AvatarView = [1,2,3,4].map((s, i) => (
   <Avatar key={i}>{s.toString()}</Avatar>
 ))
 
-export default function() {
+export default function(): React.Node {
   return (
     <div>
-      <h2>
-        Avatar List
-      </h2>
+      <header>Avatar List</header>
+
       <AvatarList>
         {AvatarView}
       </AvatarList>
 
-      <h2>
-        Disable expand
-      </h2>
+      <header>Disable expand</header>
+
       <AvatarList disable>
         {AvatarView}
       </AvatarList>
 
-      <h2>
-        From right
-      </h2>
+      <header>From right</header>
+
       <AvatarList reverse>
         {AvatarView}
       </AvatarList>
 
-      <h2>
-        Custom space
-      </h2>
+      <header>Custom space</header>
+
       <AvatarList space={75}>
         {AvatarView}
       </AvatarList>
 
-      <h2>
-        Custom expand space
-      </h2>
+
+      <header>Custom expand space</header>
+
       <AvatarList expand={-25}>
         {AvatarView}
       </AvatarList>

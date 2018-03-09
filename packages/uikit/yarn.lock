@@ -16,6 +16,23 @@
     esutils "^2.0.2"
     js-tokens "^3.0.0"
 
+"@rabbitcc/lazy-component@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@rabbitcc/lazy-component/-/lazy-component-0.0.6.tgz#1bf064c05f245796805033dce0d316bd393bb0c6"
+  dependencies:
+    "@rabbitcc/promise-extra" "^0.0.8"
+
+"@rabbitcc/promise-extra@^0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@rabbitcc/promise-extra/-/promise-extra-0.0.8.tgz#bc5217baef3bc804edef912983ddb0560521bcff"
+
+"@rabbitcc/react-router-async@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@rabbitcc/react-router-async/-/react-router-async-0.0.6.tgz#991dc638d7c617dfe2575591d377e6818c549521"
+  dependencies:
+    "@rabbitcc/lazy-component" "^0.0.6"
+    "@rabbitcc/promise-extra" "^0.0.8"
+
 "@rabbitcc/stylekit@^0.0.2":
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/@rabbitcc/stylekit/-/stylekit-0.0.2.tgz#7d051a4c25a8a661f165fd4fe945c709a4f84ecf"
