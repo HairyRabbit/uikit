@@ -29,7 +29,7 @@ module.exports = {
     rules: [
       { test: /\.js$/, use: 'babel-loader' },
       { test: /\.css$/, use: [
-        true ? MiniCssExtractPlugin.loader : 'style-loader',
+        isProd ? MiniCssExtractPlugin.loader : 'style-loader',
         { loader: 'css-loader', options: {
           modules: true,
           importLoader: 1,
@@ -126,8 +126,8 @@ module.exports = {
     //   ignoreOrder: true,
     //   disable: !isProd
     // })
-    new MiniCssExtractPlugin({
+    isProd ? new MiniCssExtractPlugin({
       filename: moduleName + '.css'
-    })
+    }) : []
   )
 }
